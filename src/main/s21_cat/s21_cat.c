@@ -44,6 +44,7 @@ int add_flags_to_file_struct(Flags_cat *flags, const char *row) {
     for (int i = 1; i < len; i++) {
         switch (row[i]) {
             case 'e': /* add flag*/ break;
+            case 'E': /* add flag*/ break;
             case 'b': /* add flag*/ break;
             case 'n': /* add flag*/ break;
             case 's': /* add flag*/ break;
