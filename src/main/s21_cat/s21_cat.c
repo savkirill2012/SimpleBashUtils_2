@@ -8,6 +8,7 @@ typedef struct {
     int flag_n;
     int flag_s;
     int flag_t;
+    int flag_v;
     char **file_names;
 } Flags_cat;
 
@@ -27,7 +28,7 @@ int get_flags_from_consol_input(Flags_cat *flags, const int num_elem, const char
             if (consol_input[i][1] == '-') {
                 //check for flag
             } else {
-                //check for flag
+                error_flag = add_flags_to_file_struct(flags, consol_input[i]);
             }
         } else {
             //add file
@@ -43,13 +44,20 @@ int add_flags_to_file_struct(Flags_cat *flags, const char *row) {
 
     for (int i = 1; i < len; i++) {
         switch (row[i]) {
-            case 'e': /* add flag*/ break;
-            case 'E': /* add flag*/ break;
-            case 'b': /* add flag*/ break;
-            case 'n': /* add flag*/ break;
-            case 's': /* add flag*/ break;
-            case 't': /* add flag*/ break;
-            case 'v': /* add flag*/ break;
+            case 'e': flags->flag_e = 1; 
+                break;
+            case 'E': flags->flag_e = 1; 
+                break;
+            case 'b': flags->flag_b = 1;
+                break;
+            case 'n': flags->flag_n = 1; 
+                break;
+            case 's': flags->flag_s = 1;
+                break;
+            case 't': flags->flag_t = 1;
+                break;
+            case 'v': flags->flag_v = 1;
+                break;
             default: error_flag = -1;
         }
 
